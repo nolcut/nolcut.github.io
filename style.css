@@ -85,6 +85,18 @@ header .subtitle {
     margin-bottom: 0;
 }
 
+.research-link {
+    color: #77d7ff;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.research-link:hover,
+.research-link:focus {
+    color: #77d7ff;
+    text-decoration: underline;
+}
+
 .bio-images {
     display: flex;
     flex-direction: column;
