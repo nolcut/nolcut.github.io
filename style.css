@@ -449,14 +449,7 @@ header .subtitle {
     gap: 10px;
 }
 
-/* Footer */
-footer {
-    margin-top: 80px;
-    padding-top: 40px;
-    border-top: 1px solid var(--border);
-    text-align: center;
-}
-
+/* Social Links */
 .social-links {
     display: flex;
     justify-content: center;
