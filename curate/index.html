@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan Cutler - CURATE</title>
+    <meta name="description" content="CURATE: Leveraging LLM Agents to Compose, Catalog, and Deploy Reproducible Workflows. Nolan Cutler, Chia-Chen Kuo, Nanda Velugoti, Kathryn Newhart, Renato Figueiredo. SC26 Workshops - WORKS, Chicago, November 2026.">
+    <link rel="canonical" href="https://nolcut.github.io/curate/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://nolcut.github.io/curate/">
+    <meta property="og:title" content="CURATE: Leveraging LLM Agents to Compose, Catalog, and Deploy Reproducible Workflows">
+    <meta property="og:description" content="A human-in-the-loop multi-agent system that manages composable scientific workflows across their entire lifecycle. SC26 Workshops - WORKS, Chicago, November 2026.">
+    <meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Back to homepage -->
+        <nav class="site-nav">
+            <a href="../">&larr; Nolan Cutler</a>
+            <span class="nav-venue">SC26 &middot; WORKS</span>
+        </nav>
+
+        <!-- Paper -->
+        <article>
+            <h1 class="paper-title">CURATE: Leveraging LLM Agents to Compose, Catalog, and Deploy Reproducible Workflows</h1>
+            <p class="authors"><strong>Nolan Cutler</strong>, Chia-Chen Kuo, Nanda Velugoti, Kathryn Newhart, Renato Figueiredo</p>
+            <p class="authors">Oregon State University</p>
+            <p class="venue"><em>SC26 Workshops &mdash; WORKS: Workshop on Workflows in Support of Large-Scale Science</em><br>
+            Chicago, IL, USA &middot; November 2026</p>
+
+            <div class="pub-links paper-links">
+                <a href="Cutler-CURATE-SC26.pdf" class="btn">PDF</a>
+                <a href="https://arxiv.org/abs/2608.04270" target="_blank" rel="noopener noreferrer" class="btn">arXiv</a>
+                <button type="button" class="btn copy-btn" id="bibtexToggle" aria-expanded="false" aria-controls="bibtexWrap">BibTeX</button>
+            </div>
+
+            <div class="bibtex-wrap" id="bibtexWrap">
+                <pre class="bibtex" id="bibtexText">@inproceedings{cutler2026curate,
+  title     = {{CURATE}: Leveraging {LLM} Agents to Compose, Catalog,
+               and Deploy Reproducible Workflows},
+  author    = {Cutler, Nolan and Kuo, Chia-Chen and Velugoti, Nanda and
+               Newhart, Kathryn and Figueiredo, Renato},
+  booktitle = {SC26 Workshops: Workshop on Workflows in Support of
+               Large-Scale Science (WORKS)},
+  year      = {2026},
+  address   = {Chicago, IL, USA},
+  publisher = {IEEE},
+}</pre>
+                <button type="button" class="btn copy-btn" id="copyBibtex">Copy</button>
+            </div>
+
+            <section class="paper-section" style="margin-top: 50px;">
+                <h2>Abstract</h2>
+                <p class="paper-abstract">
+                    Agentic code generation has the potential to accelerate the development of computational
+                    workflows while also reducing barriers to entry. However, a key gap remains: existing coding
+                    agents focus on code generation and do not address the entire workflow lifecycle, including
+                    deployment and sharing. As a result, users develop and stitch modules independently while
+                    managing deployment on their own. To address this gap, we propose CURATE (Composition,
+                    User-in-the-loop, Reuse, and Automated Task Execution), a novel human-in-the-loop multi-agent
+                    system that uses LLM agents to manage and develop composable workflows across their entire
+                    lifecycle. A key feature of the system is a catalog that allows for the storage and reuse of
+                    modules across workflows. Module catalogs provide a foundation that can be expanded to support
+                    FAIR principles by facilitating the sharing and reuse of curated modules and subgraphs. We
+                    demonstrate the feasibility of our system with an initial prototype and 6 experiments.
+                </p>
+                <p class="venue" style="margin-top: 16px;"><em>Index terms:</em> scientific workflow, multi-agent, HITL, FAIR, coding agent</p>
+            </section>
+
+            <p class="paper-note">
+                &copy; 2026 IEEE. Personal use of this material is permitted. Permission from IEEE must be
+                obtained for all other uses, in any current or future media, including reprinting/republishing
+                this material for advertising or promotional purposes, creating new collective works, for resale
+                or redistribution to servers or lists, or reuse of any copyrighted component of this work in
+                other works.
+            </p>
+        </article>
+    </div>
+
+    <script>
+        // Local to this page - style.css is shared, but script.js is not loaded here
+        // (it hard-fails on pages without the homepage photo-modal markup).
+        (function () {
+            const toggle = document.getElementById('bibtexToggle');
+            const wrap = document.getElementById('bibtexWrap');
+            const copy = document.getElementById('copyBibtex');
+            const text = document.getElementById('bibtexText');
+
+            toggle.addEventListener('click', () => {
+                const open = wrap.classList.toggle('active');
+                toggle.setAttribute('aria-expanded', String(open));
+            });
+
+            copy.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(text.textContent);
+                    copy.textContent = 'Copied';
+                } catch {
+                    // Clipboard API needs a secure context; fall back to selecting the text.
+                    const range = document.createRange();
+                    range.selectNodeContents(text);
+                    const sel = window.getSelection();
+                    sel.removeAllRanges();
+                    sel.addRange(range);
+                    copy.textContent = 'Press ⌘C';
+                }
+                setTimeout(() => { copy.textContent = 'Copy'; }, 2000);
+            });
+        })();
+    </script>
+</body>
+</html>

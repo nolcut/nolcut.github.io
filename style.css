@@ -473,6 +473,102 @@ header .subtitle {
     height: 24px;
 }
 
+/* Paper Page (curate/) */
+.site-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+
+.site-nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+    color: var(--accent);
+}
+
+.site-nav .nav-venue {
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.paper-title {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--text-light);
+    margin-bottom: 16px;
+}
+
+.paper-links {
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.paper-section {
+    margin-bottom: 50px;
+}
+
+.paper-section h2 {
+    font-size: 0.95rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.paper-abstract {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+.bibtex-wrap {
+    display: none;
+}
+
+.bibtex-wrap.active {
+    display: block;
+}
+
+.bibtex {
+    background-color: var(--darker-bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 20px;
+    overflow-x: auto;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+    line-height: 1.7;
+    letter-spacing: 0;
+    color: var(--text-light);
+    margin-bottom: 12px;
+}
+
+.copy-btn {
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.paper-note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 40px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
@@ -499,6 +595,14 @@ header .subtitle {
 
     .social-links {
         gap: 20px;
+    }
+
+    .paper-title {
+        font-size: 1.35rem;
+    }
+
+    .site-nav {
+        font-size: 0.85rem;
     }
 }
 
@@ -531,6 +635,20 @@ header .subtitle {
     .social-links svg {
         width: 20px;
         height: 20px;
+    }
+
+    .paper-title {
+        font-size: 1.2rem;
+    }
+
+    /* Phones are the whole QR audience - keep the back link uncrowded */
+    .site-nav .nav-venue {
+        display: none;
+    }
+
+    .bibtex {
+        font-size: 0.7rem;
+        padding: 14px;
     }
 }
 
